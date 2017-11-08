@@ -1,4 +1,35 @@
-body {
-  margin-top: 4rem; }
+html {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #282828; }
+
+.navbar {
+  flex-grow: 1;
+  display: flex;
+  max-height: 3rem;
+  border-bottom: solid 2px #e6e6e6;
+  padding: 1rem 0; }
+  .navbar .navbar-right {
+    display: flex;
+    margin-left: auto; }
+  .navbar .navbar-item {
+    min-width: 3rem;
+    text-align: center;
+    padding: 1rem;
+    margin: 0 0.25rem;
+    line-height: 1rem;
+    text-decoration: none;
+    color: #282828; }
+    .navbar .navbar-item:hover:not(.btn) {
+      background-color: rgba(0, 0, 0, 0.1); }
+
+.btn-red {
+  background-color: #e74c3c;
+  color: white !important; }
+
+input[type=text] {
+  border: none;
+  background-color: #f0f0f0;
+  padding: 0.25rem; }
 
 /*# sourceMappingURL=style.css.map */

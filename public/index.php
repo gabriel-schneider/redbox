@@ -9,6 +9,7 @@ $di = new Phalcon\Di\FactoryDefault();
 $di->set('view', function() {
     $view = new \Phalcon\Mvc\View();
     $view->setViewsDir(APP_PATH . '/views/');
+    $view->setPartialsDir('partials/');
     $view->registerEngines([
         ".volt" => function ($view, $di) {
             $volt = new Phalcon\Mvc\View\Engine\Volt($view, $di);

@@ -1,4 +1,6 @@
 {% extends "base.volt" %}
 {% block main %}
-    Test block content! HELLO!
+<form>
+    <input name"nome" type="text"/>
+</form>
 {% endblock %}
