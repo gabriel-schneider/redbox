@@ -16,13 +16,15 @@
         {{ partial("navbar", ['items': navbarItems ]) }}
       </div>
     </div>
-    <div role="main">
+    <div role="main" style="margin-top: 1rem;">
       {% block main %} {% endblock %}
     </div>
     <footer>
       {{ assets.outputJs() }}
     </footer>
   </div>
+
+
 
   </body>
 </html>

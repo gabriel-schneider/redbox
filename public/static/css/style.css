@@ -1,3 +1,6 @@
+*, *:before, *:after {
+  box-sizing: border-box; }
+
 html {
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
@@ -23,13 +26,55 @@ html {
     .navbar .navbar-item:hover:not(.btn) {
       background-color: rgba(0, 0, 0, 0.1); }
 
-.btn-red {
-  background-color: #e74c3c;
-  color: white !important; }
+.btn {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.5em;
+  line-height: 1em;
+  display: inline-block;
+  cursor: pointer; }
+  .btn.btn-red {
+    background-color: #e74c3c;
+    border-bottom: 4px solid #d62c1a;
+    color: white;
+    border-radius: 3px;
+    height: 3em; }
+    .btn.btn-red:hover {
+      background-color: #e85647; }
+    .btn.btn-red:active {
+      background-color: #e43725;
+      border-bottom: 3px solid #e43725; }
+  .btn.btn-blue {
+    background-color: #3498db;
+    border-bottom: 4px solid #217dbb;
+    color: white;
+    border-radius: 3px;
+    height: 3em; }
+    .btn.btn-blue:hover {
+      background-color: #3f9ddd; }
+    .btn.btn-blue:active {
+      background-color: #258cd1;
+      border-bottom: 3px solid #258cd1; }
+  .btn.btn-green {
+    background-color: #2ecc71;
+    border-bottom: 4px solid #25a25a;
+    color: white;
+    border-radius: 3px;
+    height: 3em; }
+    .btn.btn-green:hover {
+      background-color: #35d278; }
+    .btn.btn-green:active {
+      background-color: #29b765;
+      border-bottom: 3px solid #29b765; }
 
-input[type=text] {
-  border: none;
-  background-color: #f0f0f0;
-  padding: 0.25rem; }
+.control {
+  color: inherit; }
+  .control.text {
+    height: 3em;
+    font-size: 1em;
+    border: none;
+    border-radius: 3px;
+    background-color: #f0f0f0;
+    padding: 0.25rem; }
 
 /*# sourceMappingURL=style.css.map */

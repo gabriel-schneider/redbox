@@ -1,15 +1,16 @@
-$text-color: rgb(40, 40, 40);
+@import "variables";
+@import "mixins/buttons";
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
 
 html {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     //height: 100%;
     color: $text-color;
-}
-
-body {
-    // display: flex;
-    // justify-content: center;
+    
 }
 
 .navbar {
@@ -25,6 +26,7 @@ body {
         margin-left: auto;
     }
 
+    //#e74c3c
     .navbar-item {
         min-width: 3rem;
         text-align: center;
@@ -40,13 +42,40 @@ body {
     }
 }
 
-.btn-red {
-    background-color: #e74c3c;
-    color: white !important;
+.btn {
+
+    text-decoration: none;
+    color: inherit;
+    //height: 1em;
+    padding: 0.5em;
+    line-height: 1em;
+    display: inline-block;
+    cursor: pointer;
+
+    &.btn-red {
+        @include button-color($color-red, white);
+    }
+
+    &.btn-blue {
+        @include button-color($color-blue, white);
+    }
+
+    &.btn-green {
+        @include button-color($color-green, white);
+    }
 }
 
-input[type=text] {
-    border: none;
-    background-color: rgb(240, 240, 240);
-    padding: 0.25rem;
+.control {
+    color: inherit;
+
+    &.text {
+        height: 3em;
+        font-size: 1em;
+        border: none;
+        //border-top: solid 3px $input-text-shadow;
+        border-radius: 3px;
+        background-color: $input-text-background;
+        padding: 0.25rem;
+    }
+
 }
