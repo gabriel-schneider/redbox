@@ -1,3 +1,5 @@
 cache/*
 public/static/.sass-cache/*
 !cache/.gitkeep
+.vscode/*
+.idea/*
