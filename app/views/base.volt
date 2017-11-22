@@ -11,7 +11,7 @@
   <body>
   <div class="container-fluid" style="max-width: 960px">
 
-    <div class="row center-lg center-md">
+    <div class="row">
       <div class="col-xs col-sm col-md col-lg">
         {{ partial("navbar", ['items': navbarItems ]) }}
       </div>

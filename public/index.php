@@ -1,5 +1,6 @@
 <?php
 
+error_reporting( E_ALL );
 
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
@@ -26,9 +27,21 @@ $di->set('view', function() {
     return $view;
 });
 
+$di->set('router', function () {
+    $router = new Phalcon\Mvc\Router();
+    $router->setDefaultController('index');
+    $router->add('/search', [
+        'action' => 'search'
+    ]);
+    $router->add('/signin', [
+        'action' => 'signin'
+    ]);
+    return $router;
+});
+
 $di->set('url', function() {
     $url = new Phalcon\Mvc\Url();
-    $url->setBaseUri('/uniritter-reservas/public/');
+    $url->setBaseUri('/uniritter-reservas/');
     return $url;
 });
 

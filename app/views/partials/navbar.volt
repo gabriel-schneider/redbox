@@ -1,13 +1,9 @@
 <nav class="navbar">
-    <a class="navbar-item" href="#">Inicio</a>
-    <div class="navbar-right">
-    {% if logged != true %}
-        <a class="navbar-item"  href="#">Entrar</a>
-        <a class="navbar-item btn btn-red"  href="#">Registrar-se</a>
-        <a class="navbar-item btn btn-green"  href="#">Registrar-se</a>
-        <a class="navbar-item btn btn-blue"  href="#">Registrar-se</a>
-    {% else %}
-        <a class="navbar-item"  href="#">Perfil</a>
-    {% endif %}
-    </div>
+    <ul class="menu menu-horizontal flex-grow">
+        <li><a class="menu-item" href="#">Inicio</a></li>
+    </ul>
+    <ul class="menu menu-horizontal">
+        <li><a class="menu-item" href="#">Entrar</a></li>
+        <li><a class="btn btn-red" href="#">Registrar-se</a></li>
+    </ul>
 </nav>
