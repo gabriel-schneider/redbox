@@ -32,6 +32,40 @@ ul.menu {
     height: 3em;
     padding: 0 0.75em; }
 
+.message-wrapper {
+  margin: 1rem;
+  position: absolute;
+  width: 100%;
+  max-width: 480px; }
+
+.message {
+  display: flex;
+  position: relative;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem; }
+  .message .text {
+    flex-grow: 1;
+    margin: 0;
+    padding: 0; }
+  .message i.close:after {
+    font-style: normal;
+    font-family: "FontAwesome";
+    content: "\f00d";
+    cursor: pointer; }
+  .message.error {
+    background-color: #e74c3c;
+    color: white; }
+  .message.success {
+    background-color: #2ecc71;
+    color: white; }
+  .message.warning {
+    background-color: #f39c12;
+    color: white; }
+  .message.notice {
+    background-color: #3498db;
+    color: white; }
+
 *, *:before, *:after {
   box-sizing: border-box; }
 
@@ -105,6 +139,11 @@ a {
     border-radius: 3px;
     background-color: #f0f0f0;
     padding: 0.5rem; }
+
+label.control {
+  padding-left: 0.5rem;
+  font-size: 0.875rem;
+  text-align: left; }
 
 form {
   display: flex;

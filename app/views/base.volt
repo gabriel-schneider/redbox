@@ -9,8 +9,10 @@
     {{ assets.outputCss() }}
   </head>
   <body>
+  <div class="message-wrapper">
+    {{ flashSession.output() }}
+  </div>
   <div class="container-fluid" style="max-width: 960px">
-
     <div class="row">
       <div class="col-xs col-sm col-md col-lg">
         {{ partial("navbar", ['items': navbarItems ]) }}
@@ -23,8 +25,6 @@
       {{ assets.outputJs() }}
     </footer>
   </div>
-
-
 
   </body>
 </html>

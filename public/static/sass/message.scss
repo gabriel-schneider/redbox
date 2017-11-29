@@ -1,0 +1,45 @@
+@import "mixins/messages";
+
+.message-wrapper {
+    margin: 1rem;
+    position: absolute;
+    width: 100%;
+    max-width: 480px;
+}
+
+.message {
+    display: flex;
+    position: relative;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+
+    .text {
+        flex-grow: 1;
+        margin: 0;
+        padding: 0;
+    }
+
+    i.close:after {
+        font-style: normal;
+        font-family: "FontAwesome";
+        content: "\f00d";
+        cursor: pointer;
+    }
+
+    &.error {
+        @include message-color($color-red, white);
+    }
+
+    &.success {
+        @include message-color($color-green, white);
+    }
+
+    &.warning {
+        @include message-color($color-yellow, white);
+    }
+
+    &.notice {
+        @include message-color($color-blue, white);
+    }
+}

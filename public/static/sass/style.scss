@@ -1,7 +1,10 @@
 @import "variables";
+
 @import "mixins/buttons";
+
 @import "navigation";
 @import "media";
+@import "message";
 
 *, *:before, *:after {
     box-sizing: border-box;
@@ -73,14 +76,23 @@ a {
 
 }
 
+label.control {
+    padding-left: 0.5rem;
+    font-size: 0.875rem;
+    text-align: left;
+}
+
 form {
     display: flex;
     flex-direction: column;
     padding: 0.25em;
 
+
     input[type=submit] {
         margin-top: 0.5em;
     }
+    
+
 }
 
 a.link {
