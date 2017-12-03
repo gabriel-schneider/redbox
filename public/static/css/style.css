@@ -139,6 +139,7 @@ a {
   text-decoration: none;
   color: inherit;
   border-radius: 2px;
+  margin: 0;
   padding: 0.75em;
   line-height: 1em;
   display: inline-block;
@@ -215,8 +216,6 @@ form {
   display: flex;
   flex-direction: column;
   padding: 0.25em; }
-  form input[type=submit] {
-    margin-top: 0.5em; }
 
 a.link {
   text-decoration: none;
@@ -253,5 +252,20 @@ a.link {
   .datetime input[type=time] {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0; }
+
+.pager {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .pager a {
+    margin: 0 1rem;
+    display: inline-block;
+    line-height: 1rem;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem; }
+    .pager a:hover {
+      background-color: rgba(0, 0, 0, 0.1); }
 
 /*# sourceMappingURL=style.css.map */

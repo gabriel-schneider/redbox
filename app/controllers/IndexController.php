@@ -14,15 +14,29 @@ class IndexController extends BaseController
     public function searchAction()
     {
         $search = $this->request->getQuery('search', 'string');
+        $page = $this->request->getQuery('page', 'int', 1);
+        $onlyVisible = !$this->request->getQuery('hidden', 'int', 0);
+
         $this->view->search = $search;
-        $items = \Item::find([
-            'title LIKE ?1 OR description LIKE ?2',
-            'bind' => [
-                1 => '%' . $search . '%',
-                2 => '%' . $search . '%'
-            ]
+        
+        $itemsQuery = \Item::query()
+        ->where('title LIKE ?1')
+        ->orWhere('description LIKE ?2')
+        ->andWhere('visibility = ?3')
+        ->bind([
+            1 => '%' . $search . '%',
+            2 => '%' . $search . '%',
+            3 => $onlyEnabled,
+        ])
+        ->orderBy('title')->execute();
+
+        $paginator = new \Phalcon\Paginator\Adapter\Model([
+            'data' => $itemsQuery,
+            'limit' => 5,
+            'page' => $page
         ]);
-        $this->view->items = $items;
+
+        $this->view->page = $paginator->getPaginate();
     }
 
     public function signinAction()
@@ -134,8 +148,17 @@ class IndexController extends BaseController
         $user = $this->loggedUser->getModel();
         
         if ($user) {
-            $books = $user->getRelated('Book');
-            $this->view->books = $books;
+            $page = $this->request->getQuery('page', 'int', 1);
+    
+            $books = $user->getRelated('Book', ['order' => 'datetimeStart DESC']);
+
+            $paginator = new \Phalcon\Paginator\Adapter\Model([
+                'data' => $books,
+                'limit' => 5,
+                'page' => $page
+            ]);
+    
+            $this->view->page = $paginator->getPaginate();
         }
     }
 }

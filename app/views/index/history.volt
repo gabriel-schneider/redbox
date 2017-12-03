@@ -2,7 +2,7 @@
 {% block main %}
 <div class="row col-12" style="margin: 0 auto; flex-direction: column;">
     <div class="media-wrapper">
-    {% for book in books %}
+    {% for book in page.items %}
         {% set item = book.getRelated('Item') %}
         <div class="media">
             <div class="media-image {% if book.isActive() %} featured {% endif %}">
@@ -23,6 +23,7 @@
         </div>
     {% endfor %}
     </div>
+    {{ partial('pager', ['baseUrl': 'history' ,'page': page])}}
 </div>
 
 {% endblock %}

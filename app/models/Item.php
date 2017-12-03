@@ -9,6 +9,8 @@ class Item extends \Phalcon\Mvc\Model
     public $maxBookTotal;
     public $maxBookPerUser;
     public $token;
+    public $deleted;
+    public $visibility;
 
     public function initialize()
     {
@@ -25,7 +27,9 @@ class Item extends \Phalcon\Mvc\Model
             'image' => 'image',
             'book_max_total' => 'maxBookTotal',
             'book_max_user' => 'maxBookPerUser',
-            'token' => 'token'
+            'token' => 'token',
+            'deleted' => 'deleted',
+            'visibility' => 'visibility'
         ];
     }
 
@@ -37,6 +41,7 @@ class Item extends \Phalcon\Mvc\Model
             $this->token = $random->base58(10);
         } while (self::findFirstByToken($this->token));
     }
+    
 
     // public static function canBook($token, $datetimeStart, $datetimeEnd)
     // {

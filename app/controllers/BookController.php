@@ -67,4 +67,6 @@ class BookController extends BaseController
 
         $this->flashSession->error('Não foi possível cancelar a reserva solicitada...');
     }
+
+    public function visibility
 }

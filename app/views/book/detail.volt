@@ -37,7 +37,15 @@
             {% if loggedUser.isAdmin() %}
             <li>
                 <a class="btn btn-red"><i class="fa fa-trash" aria-hidden="true"></i> Deletar</a>
+                
             </li>
+            <li>
+                {% if item.isVisible() %}
+                    <a href="{{ url('item/' ~ item.token ~ '/hide') }}"class="btn"><i class="fa fa-eye" aria-hidden="true"></i> Esconder</a>
+                {% else %}
+                    <a href="{{ url('item/' ~ item.token ~ '/show') }}"class="btn"><i class="fa fa-eye" aria-hidden="true"></i> Esconder</a>
+                {% endif %}
+            </li
             {% endif %}
             </ul>
             </form>

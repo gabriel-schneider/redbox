@@ -5,7 +5,7 @@
         <p>Você procurou por: {{ search }}</p>
     </div>
     <div class="media-wrapper">
-    {% for item in items %}
+    {% for item in page.items %}
         <a href="{{ url("detail/" ~ item.token) }}">
         <div class="media hoverable">
             <div class="media-image">
@@ -22,6 +22,7 @@
         </a>
     {% endfor %}
     </div>
+    {{ partial('pager', ['baseUrl': 'search?search=' ~ search ,'page': page])}}
 </div>
 
 {% endblock %}
