@@ -5,6 +5,10 @@ ul.menu {
   display: inline-flex; }
   ul.menu.menu-vertical {
     flex-direction: column; }
+  ul.menu.wide {
+    width: 100%; }
+    ul.menu.wide .btn {
+      width: 100%; }
   ul.menu li {
     display: inline-flex;
     justify-content: center;
@@ -31,6 +35,51 @@ ul.menu {
     line-height: 3em;
     height: 3em;
     padding: 0 0.75em; }
+  .navbar .menu li {
+    display: inline-flex;
+    justify-items: center;
+    align-items: center; }
+
+.media {
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 0.25rem; }
+  .media .media-image {
+    margin-right: 1rem; }
+    .media .media-image img {
+      display: block;
+      width: 6rem;
+      height: 6rem;
+      border: 2px dashed gainsboro;
+      object-fit: cover; }
+    .media .media-image.featured img {
+      border: 2px dashed #2ecc71; }
+  .media .media-content {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    padding-right: 1rem; }
+    .media .media-content dl {
+      flex-grow: 1; }
+    .media .media-content dl, .media .media-content dd {
+      margin: 0; }
+      .media .media-content dl p, .media .media-content dd p {
+        margin: 0;
+        margin-bottom: 0.5rem; }
+    .media .media-content dt {
+      font-weight: bold;
+      margin-bottom: 0.5rem; }
+    .media .media-content .item-count {
+      font-size: 1.25rem;
+      width: 4rem;
+      line-height: 4rem;
+      text-align: center;
+      background-color: #f0f0f0;
+      border-radius: 3px; }
+  .media.hoverable:hover {
+    background-color: rgba(240, 240, 240, 0.5);
+    border-radius: 3px;
+    cursor: pointer; }
 
 .message-wrapper {
   margin: 1rem;
@@ -90,10 +139,11 @@ a {
   text-decoration: none;
   color: inherit;
   border-radius: 2px;
-  padding: 0.5em;
+  padding: 0.75em;
   line-height: 1em;
   display: inline-block;
   cursor: pointer;
+  white-space: nowrap;
   background-color: #e9e9e9;
   color: #282828; }
   .btn:hover {
@@ -140,6 +190,22 @@ a {
     background-color: #f0f0f0;
     padding: 0.5rem; }
 
+.logo-wrapper {
+  margin-bottom: 2rem; }
+  .logo-wrapper h1, .logo-wrapper h2, .logo-wrapper h3 {
+    margin: 0; }
+
+.logo {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 8rem;
+  margin: 2rem 0; }
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  height: 100vh; }
+
 label.control {
   padding-left: 0.5rem;
   font-size: 0.875rem;
@@ -157,5 +223,35 @@ a.link {
   color: #e74c3c; }
   a.link:hover {
     text-decoration: underline; }
+
+.footer {
+  margin-top: auto;
+  padding: 1rem;
+  border-top: 2px solid #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem; }
+
+.small {
+  font-size: small; }
+
+.fa.fa-heart {
+  color: #e74c3c; }
+
+.datetime {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0.25rem; }
+  .datetime input {
+    margin: 0;
+    flex-grow: 1; }
+  .datetime input[type=date] {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0; }
+  .datetime input[type=time] {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0; }
 
 /*# sourceMappingURL=style.css.map */

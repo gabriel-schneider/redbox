@@ -5,6 +5,13 @@ ul.menu {
         flex-direction: column;
     }
 
+    &.wide {
+        width: 100%;
+        .btn {
+            width: 100%;
+        }
+    }
+
     list-style: none;
     padding: 0;
     margin: 0;
@@ -32,17 +39,26 @@ ul.menu {
 .navbar {
     border-bottom: 2px solid #ececec;
     display: flex;
+
     .menu {
         padding: 0.5em;
     }
+
     .menu li > .btn {
         line-height: 2em;
         padding-right: 0.75em;
         padding-left: 0.75em;
     }
+
     .menu li > .menu-item {
         line-height: 3em;
         height: 3em;
         padding: 0 0.75em;
+    }
+
+    .menu li {
+        display: inline-flex;
+        justify-items: center;
+        align-items: center;
     }
 }

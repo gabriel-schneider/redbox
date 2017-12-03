@@ -1,7 +1,13 @@
 .big-search-form {
     font-size: 1.5em;
+    input[name=search] {
+        margin-bottom: 2rem;
+    }
     input[type=submit] {
-        margin-top: 1rem;
-        font-size: large;
+        margin: 0;
+        //max-width: 8rem;
+        font-size: 1.25rem;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
