@@ -17,6 +17,16 @@ class BaseController extends Controller
         $this->assets->addJs('static/js/jquery.mask.min.js');
         $this->assets->addJs('static/js/scripts.js');
 
+        try {
+            $this->db;
+        } catch (\Exception $e) {
+            $this->response->setStatusCode(500, 'Internal Server Error');
+            $this->response->send();
+            $this->logger->critical('Couldn\'t not connect to the database!');
+            die('Internal Server Error');
+            return false;
+        }
+
         // $this->view->loggedUser = new \Reservas\LoggedUser();
 
         // $this->flashSession->error("Something went wrong!");

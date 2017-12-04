@@ -105,3 +105,8 @@ $di->set('router', function () {
 $di->set('loggedUser', function () {
     return new \Reservas\LoggedUser();
 });
+
+$di->set('logger', function () {
+    $logger = new \Phalcon\Logger\Adapter\File(BASE_PATH . '/log');
+    return $logger;
+});
