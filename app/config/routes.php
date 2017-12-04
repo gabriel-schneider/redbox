@@ -1,40 +1,59 @@
 <?php 
-  
+
+
 $router->setDefaultController('index');
-$router->add('/search', [
-    'action' => 'search'
+$router->setDefaultAction('index');
+
+$router->add('/:controller/:action/:param', [
+    'controller' => 1,
+    'action' => 2,
+    'param' => 3
 ]);
 
-$router->add('/signin', [
-    'action' => 'signin'
+$router->add('/:controller/:action', [
+    'controller' => 1,
+    'action' => 2
 ]);
 
-$router->add('/signup', [
-    'action' => 'signup'
+$router->add('/:controller', [
+    'controller' => 1
 ]);
 
-$router->add('/signout', [
-    'action' => 'signout'
-]);
 
-$router->add('/account', [
-    'action' => 'account'
-]);
+// $router->add('/search', [
+//     'action' => 'search'
+// ]);
 
-$router->add('/history', [
-    'action' => 'history'
-]);
+// $router->add('/signin', [
+//     'action' => 'signin'
+// ]);
 
-$router->add('/cancel/{bookId}', [
-    'controller' => 'book',
-    'action' => 'cancel',
-]);
+// $router->add('/signup', [
+//     'action' => 'signup'
+// ]);
 
-$router->add('/detail/{token}', [
-    'controller' => 'book',
-    'action' => 'detail',
-    //'params' => 1
-]);
+// $router->add('/signout', [
+//     'action' => 'signout'
+// ]);
+
+// $router->add('/account', [
+//     'action' => 'account'
+// ]);
+
+// $router->add('/history', [
+//     'action' => 'history'
+// ]);
+
+// $router->add('/cancel/{bookId}', [
+//     'controller' => 'book',
+//     'action' => 'cancel',
+// ]);
+
+// $router->add('/detail/{token}', [
+//     'controller' => 'book',
+//     'action' => 'detail',
+//     //'params' => 1
+// ]);
 
 $router->add('/404', [
     'controller' => 'error',

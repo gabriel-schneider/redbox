@@ -39,4 +39,13 @@
     display: inline-block;
     margin-bottom: 0.25rem; }
 
-/*# sourceMappingURL=detail.css.map */
+.widget .widget-title {
+  text-align: center; }
+
+.item-rules {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875em; }
+
+/*# sourceMappingURL=book.css.map */

@@ -97,6 +97,7 @@ $di->set('assets', function () {
 
 $di->set('router', function () {
     $router = new \Phalcon\Mvc\Router();
+    $router->removeExtraSlashes(true);
     require(CONFIG_PATH . '/routes.php');
     return $router;
 });

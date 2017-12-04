@@ -41,6 +41,11 @@ class Item extends \Phalcon\Mvc\Model
             $this->token = $random->base58(10);
         } while (self::findFirstByToken($this->token));
     }
+
+    public function isVisible()
+    {
+        return ($this->visibility == true);
+    }
     
 
     // public static function canBook($token, $datetimeStart, $datetimeEnd)

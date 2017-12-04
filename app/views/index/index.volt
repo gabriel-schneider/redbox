@@ -7,9 +7,8 @@
             <h3>Pesquise, encontre, reserve.</h3>
         </div>
     
-        <form class="big-search-form" action="{{ url('search') }}">
-            
-            <input style="width: 100%" class="control text" name="search" type="text"/>
+        <form class="big-search-form" action="{{ url('item/search') }}">        
+            <input style="width: 100%" class="control text" name="q" type="text"/>
             <input class="btn btn-red" type="submit" value="Pesquisar"/>
         </form>
     </div>

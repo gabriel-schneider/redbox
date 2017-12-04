@@ -6,7 +6,7 @@
     </div>
     <div class="media-wrapper">
     {% for item in page.items %}
-        <a href="{{ url("detail/" ~ item.token) }}">
+        <a href="{{ url("item/book/" ~ item.token) }}">
         <div class="media hoverable">
             <div class="media-image">
                 <img src="{{ url('static/img/item/' ~ item.image) }}"/>
@@ -22,7 +22,7 @@
         </a>
     {% endfor %}
     </div>
-    {{ partial('pager', ['baseUrl': 'search?search=' ~ search ,'page': page])}}
+    {{ partial('pager', ['baseUrl': 'item/search?q=' ~ search ~ '&hidden=' ~ hidden,'page': page])}}
 </div>
 
 {% endblock %}

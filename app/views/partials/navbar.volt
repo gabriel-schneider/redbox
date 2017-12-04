@@ -7,23 +7,31 @@
             <span>Olá, {{ loggedUser.getBag().displayName }}</span>
         </li>
         {% if loggedUser.isGuest() %}   
-        <li><a class="menu-item" href="{{ url('signin') }}">Entrar</a></li>
-        <li><a class="btn btn-red" href="{{ url('signup') }}">Registrar-se</a></li>
+        <li><a class="menu-item" href="{{ url('user/signin') }}">Entrar</a></li>
+        <li><a class="btn btn-red" href="{{ url('user/signup') }}">Registrar-se</a></li>
         {% else %}
         <li>
-            <a class="menu-item" href="{{ url('account') }}">
+            <a class="menu-item" href="{{ url('user/account') }}">
                 <i class="fa fa-user" aria-hidden="true"></i>                   
                 Conta
             </a>
         </li>
         <li>
-            <a class="menu-item" href="{{ url('history') }}">
+            <a class="menu-item" href="{{ url('user/history') }}">
                 <i class="fa fa-history" aria-hidden="true"></i>                 
                 Suas Reservas
             </a>
         </li>
+        {% if loggedUser.isAdmin() %}  
         <li>
-            <a class="menu-item" href="{{ url('signout') }}">
+            <a class="menu-item" href="{{ url('admin') }}">
+                <i class="fa fa-lock" aria-hidden="true"></i>                 
+                Administração
+            </a>
+        </li>
+        {% endif %}
+        <li>
+            <a class="menu-item" href="{{ url('user/signout') }}">
                 <i class="fa fa-sign-out" aria-hidden="true"></i>                 
                 Sair
             </a>

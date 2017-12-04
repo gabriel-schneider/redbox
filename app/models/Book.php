@@ -73,6 +73,11 @@ class Book extends \Phalcon\Mvc\Model
         return (!$this->isActive() && !$this->isOld());
     }
 
+    public function isFromLoggedUser()
+    {
+        return ($this->userId == $this->getDi()->get('loggedUser')::getBag()->id);
+    }
+
     public function canBook($token, $userId, $datetimeStart, $datetimeEnd)
     {
         $item = Item::findFirstByToken($token);

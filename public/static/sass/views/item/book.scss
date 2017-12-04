@@ -13,6 +13,7 @@
         border-bottom: 1px solid #ececec;
     } 
     margin-bottom: 1rem;
+    //padding: 0.5rem;
 }
 
 #options {
@@ -47,4 +48,16 @@
         margin-bottom: 0.25rem;
     }
     margin-bottom: 1rem;
+}
+
+.widget {
+    .widget-title {
+        text-align: center;
+    }
+}
+.item-rules {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.875em;
 }
