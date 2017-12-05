@@ -1,13 +1,83 @@
 <?php
 
+use Phalcon\Forms\Form;
+use Phalcon\Forms\Element\Text;
+use Phalcon\Forms\Element\Hidden;
+
 class ItemController extends BaseController
 {
+    protected function getItemImagesDirectory()
+    {
+        return IMAGES_PATH . '/item/';
+    }
+
     public function addAction()
     {
+        if (!$this->loggedUser->isAdmin()) {
+            return $this->response->redirect('');
+        }
+
+        $item = new Item();
+        $form = new ItemForm($item);
+
+        if ($this->request->isPost()) {
+            $form->bind($_POST, $item);
+            if ($item->create()) {
+                if ($this->request->hasFiles() == true) {
+                    foreach ($this->request->getUploadedFiles() as $file) {
+                        $file->moveTo($this->getItemImagesDirectory() . $item->token . '.' . $file->getExtension());
+                        $item->image = $item->token . '.' . $file->getExtension();
+                        $item->save();
+                    }
+                }
+                $this->response->redirect('item/book/' . $item->token);
+            } else {
+                foreach ($item->getMessages() as $message) {
+                    $this->flashSession->error($message);
+                }
+            }
+        }
+
+        $this->view->submitValue = 'Adicionar';
+        $this->view->form = $form;
     }
 
     public function editAction($token)
     {
+        if (!$this->loggedUser->isAdmin()) {
+            return $this->response->redirect('');
+        }
+
+        $item = Item::findFirstByToken($token);
+
+        if (!$item) {
+            return $this->response->redirect('404');
+        }
+
+        $form = new ItemForm($item);
+
+        if ($this->request->isPost()) {
+            $form->bind($_POST, $item);
+            if ($item->save()) {
+                if ($this->request->hasFiles(true)) {
+                    unlink($item->getImage());
+                    foreach ($this->request->getUploadedFiles() as $file) {
+                        $file->moveTo($this->getItemImagesDirectory() . $item->token . '.' . $file->getExtension());
+                        $item->image = $item->token . '.' . $file->getExtension();
+                        $item->save();
+                    }
+                }
+                $this->response->redirect('item/book/' . $item->token);
+            } else {
+                foreach ($item->getMessages() as $message) {
+                    $this->flashSession->error($message);
+                }
+            }
+        }
+
+        $this->view->submitValue = 'Salvar';
+        $this->view->form = $form;
+        $this->view->pick('item/add');
     }
 
     public function deleteAction($token)
@@ -99,24 +169,28 @@ class ItemController extends BaseController
         $search = $this->request->getQuery('q', 'string');
         $page = $this->request->getQuery('page', 'int', 1);
 
-        $showHidden = $this->request->getQuery('hidden', 'int', 0) && $this->loggedUser->isAdmin();
+        $showHidden = $this->loggedUser->isAdmin();
+
+        //$this->request->getQuery('hidden', 'int', 0)
 
         $this->view->search = $search;
         
         $itemsQuery = \Item::query()
         ->where('title LIKE ?1')
         ->orWhere('description LIKE ?2')
-        ->andWhere('visibility = ?3')
         ->andWhere('deleted = 0')
         ->orderBy('title')
         ->bind([
             1 => '%' . $search . '%',
             2 => '%' . $search . '%',
-            3 => !$showHidden,
-        ])->execute();
+        ]);
+
+        if (!$this->loggedUser->isAdmin()) {
+            $itemsQuery->andWhere('visibility = 1');
+        }
 
         $paginator = new \Phalcon\Paginator\Adapter\Model([
-            'data' => $itemsQuery,
+            'data' => $itemsQuery->execute(),
             'limit' => 5,
             'page' => $page
         ]);

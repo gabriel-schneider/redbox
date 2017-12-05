@@ -4,10 +4,10 @@
 $router->setDefaultController('index');
 $router->setDefaultAction('index');
 
-$router->add('/:controller/:action/:param', [
+$router->add('/:controller/:action/:params', [
     'controller' => 1,
     'action' => 2,
-    'param' => 3
+    'params' => 3
 ]);
 
 $router->add('/:controller/:action', [
@@ -17,6 +17,10 @@ $router->add('/:controller/:action', [
 
 $router->add('/:controller', [
     'controller' => 1
+]);
+
+$router->add('/admin', [
+    'controller' => 'admin'
 ]);
 
 

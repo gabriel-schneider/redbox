@@ -45,15 +45,18 @@ ul.menu {
   margin-bottom: 1rem;
   padding: 0.25rem; }
   .media .media-image {
+    padding: 0.25rem;
     margin-right: 1rem; }
     .media .media-image img {
       display: block;
       width: 6rem;
       height: 6rem;
-      border: 2px dashed gainsboro;
-      object-fit: cover; }
-    .media .media-image.featured img {
-      border: 2px dashed #2ecc71; }
+      object-fit: cover;
+      border-radius: 3px; }
+    .media .media-image.featured {
+      border: 3px dashed #2ecc71; }
+    .media .media-image.hidden {
+      border: 3px dashed gainsboro; }
   .media .media-content {
     display: flex;
     flex-grow: 1;
@@ -180,6 +183,12 @@ a {
     .btn.btn-link:active {
       background-color: rgba(242, 242, 242, 0); }
 
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25em;
+  text-align: left; }
+
 .control {
   color: inherit;
   margin-bottom: 0.5em; }
@@ -190,6 +199,11 @@ a {
     border-radius: 3px;
     background-color: #f0f0f0;
     padding: 0.5rem; }
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem; }
 
 .logo-wrapper {
   margin-bottom: 2rem; }
@@ -211,11 +225,6 @@ label.control {
   padding-left: 0.5rem;
   font-size: 0.875rem;
   text-align: left; }
-
-form {
-  display: flex;
-  flex-direction: column;
-  padding: 0.25em; }
 
 a.link {
   text-decoration: none;

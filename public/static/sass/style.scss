@@ -62,6 +62,13 @@ a {
     }
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 0.25em;
+    text-align: left;
+}
+
 .control {
     color: inherit;
     margin-bottom: 0.5em;
@@ -74,6 +81,15 @@ a {
         padding: 0.5rem;
     }
 
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    .control {
+        //width: 100%;
+    }
 }
 
 .logo-wrapper {
@@ -102,14 +118,6 @@ label.control {
     text-align: left;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    padding: 0.25em;
-    
-
-}
-
 a.link {
     text-decoration: none;
     color: $color-red;
@@ -136,6 +144,7 @@ a.link {
 .small {
     font-size: small;
 }
+
 
 // Misc
 

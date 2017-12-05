@@ -6,6 +6,7 @@ date_default_timezone_set('America/Sao_Paulo');
 define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/app');
 define('CONFIG_PATH', APP_PATH . '/config');
+define('IMAGES_PATH', BASE_PATH . '/public/static/img');
 
 require(CONFIG_PATH . '/loader.php');
 

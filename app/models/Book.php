@@ -82,11 +82,11 @@ class Book extends \Phalcon\Mvc\Model
     {
         $item = Item::findFirstByToken($token);
 
-        if ($item->maxBookTotal == -1) {
+        if ($item->maxBookTotal == 0) {
             $item->maxBookTotal = 9999;
         }
 
-        if ($item->maxBookPerUser == -1) {
+        if ($item->maxBookPerUser == 0) {
             $item->maxBookPerUser = 9999;
         }
 

@@ -6,17 +6,23 @@
     padding: 0.25rem;
 
     .media-image {
+        padding: 0.25rem;
         margin-right: 1rem;
+        
         img {
             display: block;
             width: 6rem;
             height: 6rem;
-            border: 2px dashed $input-text-shadow;
             object-fit: cover;
+            border-radius: 3px;
         }
 
-        &.featured img {
-            border: 2px dashed $color-green; 
+        &.featured {
+            border: 3px dashed $color-green; 
+        }
+
+        &.hidden {
+            border: 3px dashed $input-text-shadow;
         }
     }
 

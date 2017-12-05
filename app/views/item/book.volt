@@ -3,14 +3,14 @@
 <div class="row">
 
     <div class="col-lg-4 col-md-4 col-xs-12">
-        <img class="item-image" src="{{ url('static/img/item/' ~ item.image) }}"/>
+        <img class="item-image" src="{{ item.getImageUrl() }}"/>
         
         <div class="widget">
             <p class="widget-title">Regras</p>
             <div class="widget-content">
                 <ul class="item-rules">
-                    <li>Limite de reservas ativas é <strong>{{ item.maxBookTotal >= 0 ? item.maxBookTotal : 'ilimitado' }}</strong></li>
-                    <li>Limite de reservas por usuário é <strong>{{ item.maxBookPerUser >= 0 ? item.maxBookPerUser : 'ilimitado' }}</strong></li>
+                    <li>Limite de reservas ativas é <strong>{{ item.maxBookTotal > 0 ? item.maxBookTotal : 'ilimitado' }}</strong></li>
+                    <li>Limite de reservas por usuário é <strong>{{ item.maxBookPerUser > 0 ? item.maxBookPerUser : 'ilimitado' }}</strong></li>
                     {# <li>Tempo máximo de reserva é {{ item.maxBookPerUser }}</li> #}
                 <ul>
             </div>
@@ -51,11 +51,7 @@
                 
             </li>
             <li>
-                {% if item.isVisible() %}
-                    <a href="{{ url('item/hide/' ~ item.token) }}" class="btn"><i class="fa fa-eye" aria-hidden="true"></i> Esconder</a>
-                {% else %}
-                    <a href="{{ url('item/show/' ~ item.token) }}" class="btn"><i class="fa fa-eye" aria-hidden="true"></i> Mostrar</a>
-                {% endif %}
+                <a href="{{ url('item/edit/' ~ item.token) }}" class="btn"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a>
             </li
             {% endif %}
             </ul>
@@ -64,8 +60,6 @@
             <p>Faça {{ link_to('signin', 'login') }} para reservar esse item.</p>
             {% endif %}
         </div>
-        
     </div>
-   
 </div>
 {% endblock %}

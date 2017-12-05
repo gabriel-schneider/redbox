@@ -8,8 +8,8 @@
     {% for item in page.items %}
         <a href="{{ url("item/book/" ~ item.token) }}">
         <div class="media hoverable">
-            <div class="media-image">
-                <img src="{{ url('static/img/item/' ~ item.image) }}"/>
+            <div class="media-image {{ item.isVisible() ? '' : 'hidden' }}">
+                <img src="{{ item.getImageUrl() }}"/>
             </div>
             <div class="media-content">
                 <dl>
