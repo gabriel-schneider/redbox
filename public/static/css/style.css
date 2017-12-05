@@ -278,4 +278,17 @@ a.link {
     .pager a:hover {
       background-color: rgba(0, 0, 0, 0.1); }
 
+.table {
+  width: 100%;
+  border-spacing: 0px;
+  border-collapse: separate; }
+  .table td {
+    padding: 0.5rem; }
+  .table thead {
+    background-color: #ececec; }
+    .table thead th {
+      padding: 0.5rem;
+      font-weight: normal;
+      border-bottom: 2px solid #bebebe; }
+
 /*# sourceMappingURL=style.css.map */

@@ -41,24 +41,47 @@
                     <input class="control text datetime" type="text" name="datetime-end" value="{{ datetimeEnd }}" />
                 </div>
             </div>
+            <div class="control-group">
             <ul id="options" class="menu">
-            <li>
-                <input type="submit" class="btn btn-green" value="Reservar"/>
-            </li>
+                <li>
+                    <input type="submit" class="btn btn-green" value="Reservar"/>
+                </li>
             {% if loggedUser.isAdmin() %}
-            <li>
-                <a href="{{ url('item/delete/' ~ item.token) }}" class="btn btn-red"><i class="fa fa-trash" aria-hidden="true"></i> Deletar</a>
-                
-            </li>
-            <li>
-                <a href="{{ url('item/edit/' ~ item.token) }}" class="btn"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a>
-            </li
+                <li>
+                    <a href="{{ url('item/delete/' ~ item.token) }}" class="btn btn-red"><i class="fa fa-trash" aria-hidden="true"></i> Deletar</a>        
+                </li>
+                <li>
+                    <a href="{{ url('item/edit/' ~ item.token) }}" class="btn"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a>
+                </li
             {% endif %}
             </ul>
+            </div>
             </form>
-            {% else %}
+        </div>
+        <div class="section">
+            <p class="item-title">Este item já foi reservado nas seguintes datas:</p>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Início</th>
+                        <th>Término</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td>{{ book.getRelated('user').displayName }}</td>
+                        <td>{{ book.datetimeStart.format('d/m/Y H:i:s') }}</td>
+                        <td>{{ book.datetimeEnd.format('d/m/Y H:i:s') }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
             <p>Faça {{ link_to('signin', 'login') }} para reservar esse item.</p>
-            {% endif %}
+        {% endif %}
         </div>
     </div>
 </div>

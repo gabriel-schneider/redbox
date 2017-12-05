@@ -185,3 +185,22 @@ a.link {
         }
     }
 }
+
+.table {
+    width: 100%;
+    border-spacing: 0px;
+    border-collapse: separate;
+    td {
+        padding: 0.5rem;
+    }
+    thead {
+        background-color: #ececec;
+        
+        th {
+            padding: 0.5rem;
+            font-weight: normal;    
+            border-bottom: 2px solid #bebebe;     
+        }
+    }
+
+}

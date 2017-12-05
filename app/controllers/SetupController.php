@@ -42,6 +42,7 @@ class SetupController extends BaseController
             $this->view->success = true;
         } catch (\Exception $e) {
             $this->flashSession->error('Não foi possível conectar ao banco de dados!');
+            $this->flashSession->error($e);
             return $this->response->redirect('setup/database');
         }
         

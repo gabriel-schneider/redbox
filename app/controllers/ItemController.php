@@ -139,6 +139,11 @@ class ItemController extends BaseController
             $this->view->datetimeStart = $datetimeStart->format("Y-m-d H:i");
             $this->view->datetimeEnd = $datetimeEnd->format("Y-m-d H:i");
 
+            $this->view->books = $item->getRelated('book', [
+                'order' => 'datetimeStart ASC',
+                'conditions' => 'datetimeStart > NOW()',
+                'limit' => 5
+            ]);
             $this->view->item = $item;
         } else {
             $this->view->pick('book/notfound');

@@ -1,6 +1,8 @@
 cache/*
 public/static/.sass-cache/*
 !cache/.gitkeep
+public/static/img/items/*
+!public/static/img/items/.gitkeep
 .vscode/*
 .idea/*
 log
