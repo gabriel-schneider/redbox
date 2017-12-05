@@ -102,7 +102,7 @@ $di->set('flashSession', function () {
 
 $di->set('url', function () {
     $url = new \Phalcon\Mvc\Url();
-    $url->setBaseUri('/uniritter-reservas/');
+    $url->setBaseUri('/redbox/');
     return $url;
 });
 
