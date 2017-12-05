@@ -9,8 +9,17 @@ class SetupController extends BaseController
         parent::initialize();
         $this->assets->addCss('static/css/views/setup.css');
     }
+
+    public function beforeExecuteRoute() {
+        if ($this->config->get('setup', false) == true) {
+            $this->response->redirect('');
+            return false;
+        }
+    }
+
     public function welcomeAction()
     {
+        //
     }
 
     public function databaseAction()
@@ -42,7 +51,6 @@ class SetupController extends BaseController
             $this->view->success = true;
         } catch (\Exception $e) {
             $this->flashSession->error('Não foi possível conectar ao banco de dados!');
-            $this->flashSession->error($e);
             return $this->response->redirect('setup/database');
         }
         
