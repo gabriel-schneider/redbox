@@ -2,6 +2,15 @@
 
 $di = new Phalcon\Di\FactoryDefault();
 
+$di->set('config', function () {
+    $configArr = [];
+    if (file_exists(APP_PATH . '/config/config.php')) {
+        $configArr = include APP_PATH . '/config/config.php';
+    }
+    $config = new \Phalcon\Config($configArr);
+    return $config;
+});
+
 $di->set('view', function () {
     $view = new \Phalcon\Mvc\View();
     $view->setViewsDir(APP_PATH . '/views/');
@@ -51,17 +60,24 @@ $di->set('security', function () {
     return $security;
 });
 
-$di->set('db', function () {
-    $db = new \Phalcon\Db\Adapter\Pdo\Mysql([
-        "host" => "localhost",
-        "dbname" => "reservas",
-        "port"  => 3306,
-        "username" => "root",
-        "password" => "root"
-    ]);
+$config = $di->get('config');
 
+$di->setShared('db', function () use ($config) {
+    $db = new \Phalcon\Db\Adapter\Pdo\Mysql([
+        "host" => $config->get('host', ''),
+        "dbname" => $config->get('dbname', ''),
+        "port"  => $config->get('port', 0),
+        "username" => $config->get('username', ''),
+        "password" => $config->get('password', '')
+    ]);
     return $db;
 });
+
+// "host" => "localhost",
+// "dbname" => "reservas",
+// "port"  => 3306,
+// "username" => "root",
+// "password" => "root"
 
 $di->set('modelsMetadata', function () {
     return new Phalcon\Mvc\Model\MetaData\Memory();

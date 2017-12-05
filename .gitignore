@@ -4,3 +4,4 @@ public/static/.sass-cache/*
 .vscode/*
 .idea/*
 log
+app/config/config.php

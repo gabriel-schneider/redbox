@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,WAAY;EACR,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,eAAe,EAAE,MAAM;EACvB,MAAM,EAAE,KAAK",
+"sources": ["../../sass/views/setup.scss"],
+"names": [],
+"file": "setup.css"
+}

@@ -17,15 +17,17 @@ class BaseController extends Controller
         $this->assets->addJs('static/js/jquery.mask.min.js');
         $this->assets->addJs('static/js/scripts.js');
 
-        try {
-            $this->db;
-        } catch (\Exception $e) {
-            $this->response->setStatusCode(500, 'Internal Server Error');
-            $this->response->send();
-            $this->logger->critical('Couldn\'t not connect to the database!');
-            die('Internal Server Error');
-            return false;
-        }
+        
+        //if (
+        // try {
+        //     $this->db;
+        // } catch (\Exception $e) {
+        //     $this->response->setStatusCode(500, 'Internal Server Error');
+        //     $this->response->send();
+        //     $this->logger->critical('Couldn\'t not connect to the database!');
+        //     die('Internal Server Error');
+        //     return false;
+        // }
 
         // $this->view->loggedUser = new \Reservas\LoggedUser();
 
@@ -33,5 +35,13 @@ class BaseController extends Controller
         // $this->flashSession->success("Everything is fine!");
         // $this->flashSession->warning("Something is maybe wrong!?");
         // $this->flashSession->notice("Hello! This is a notice message!");
+    }
+
+    public function beforeExecuteRoute()
+    {
+        if ($this->config->get('setup', false) == false && $this->dispatcher->getControllerName() != 'setup') {
+            $this->response->redirect('setup/welcome');
+            return false;
+        }
     }
 }
