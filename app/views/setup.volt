@@ -18,7 +18,7 @@
       {% block main %} {% endblock %}
     </div>
     <div class="row footer">
-          <span>Desenvolvido com <i class="fa fa-heart" aria-hidden="true"></i> por Gabriel Schneider</span>
+          <span>Desenvolvido com muito <i class="fa fa-coffee" aria-hidden="true"></i> por Gabriel Schneider</span>
     </div>
   </div>
   <footer>
