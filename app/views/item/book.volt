@@ -72,8 +72,8 @@
                 {% for book in books %}
                     <tr>
                         <td>{{ book.getRelated('user').displayName }}</td>
-                        <td>{{ book.datetimeStart.format('d/m/Y H:i:s') }}</td>
-                        <td>{{ book.datetimeEnd.format('d/m/Y H:i:s') }}</td>
+                        <td>{{ book.datetimeStart.format('d/m/Y H:i') }}</td>
+                        <td>{{ book.datetimeEnd.format('d/m/Y H:i') }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>

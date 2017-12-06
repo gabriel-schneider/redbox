@@ -3,6 +3,7 @@ public/static/.sass-cache/*
 !cache/.gitkeep
 public/static/img/items/*
 !public/static/img/items/.gitkeep
+!public/static/img/items/no-image.png
 .vscode/*
 .idea/*
 log
